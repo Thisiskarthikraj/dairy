@@ -1,0 +1,15 @@
+{% extends "home.html" %}
+
+{% block content %}
+  <h2>Your Purchases</h2>
+  <ul>
+    {% for purchase in purchases %}
+      <li>
+        {{ purchase.date }}: {{ purchase.quantity }} liters at {{ purchase.price_per_liter.price_per_liter }} per liter
+      </li>
+    {% empty %}
+      <li>No purchases found.</li>
+    {% endfor %}
+  </ul>
+  <h3>Total Amount: {{ total_amount }}</h3>
+{% endblock %}

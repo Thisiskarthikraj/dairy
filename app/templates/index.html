@@ -1,0 +1,18 @@
+{% extends "home.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>Welcome </h1>
+  <p>This is the home page </p>
+
+  {% if user.is_authenticated %}
+    <p>Hello, {{ user.username }}!</p>
+    <p>Feel free to explore the features:</p>
+    <ul>
+      <li><a href="{% url 'view_purchases' %}">View Your Purchases</a></li>
+    </ul>
+  {% else %}
+    <p>Please <a href="{% url 'login' %}">log in</a> to access more features.</p>
+  {% endif %}
+{% endblock %}
